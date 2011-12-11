@@ -1,4 +1,4 @@
-$(function() {
+window.onload = function() {
   /*document.getElementById("pixelate-1").closePixelate([
 
   document.getElementById("normal").closePixelate([
@@ -35,4 +35,4 @@ $(function() {
       $(img).closePixelate(flavors[i]);
     }
   });
-});
+};
