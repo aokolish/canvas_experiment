@@ -25,12 +25,14 @@ $(function() {
       { shape: 'diamond', resolution: 10, size: 13, offset: 13, alpha: 0.611 } ],
     [ { shape: 'diamond', resolution: 14, size: 27, offset: 15, alpha: 0.991 },
       { shape: 'circle', resolution: 50, size: 23, offset: 8, alpha: 0.501 },
-      { shape: 'circle', resolution: 50, size: 11, offset: 8, alpha: 0.441 } ],
-    [ { resolution: 0 },
-      { shape: 'circle', resolution: 12, size: 29, alpha: 0.3 } ]
+      { shape: 'circle', resolution: 50, size: 11, offset: 8, alpha: 0.441 } ]
+    //,[ { resolution: 0 },
+    //{ shape: 'circle', resolution: 12, size: 29, alpha: 0.3 } ]
   ];
 
   $('img:not(#normal)').each(function(i, img) {
-    $(img).closePixelate(flavors[i]);
+    if (flavors[i]) {
+      $(img).closePixelate(flavors[i]);
+    }
   });
 });

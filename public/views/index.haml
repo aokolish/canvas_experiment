@@ -1,0 +1,30 @@
+!!! 5
+%html
+  %head
+    :css
+      body {
+        background: #262626;
+        width: 830px;
+        margin: 10px auto 0;
+      }
+
+      img, canvas {
+        margin: 0 5px 5px 0;
+      }
+      canvas {
+        outline: 1px dotted black;
+      }
+  %body
+    %img{ :id => "pixelate-1", :src => "/img/me.jpg"}
+    %img{ :id => "pixelate-2", :src => "/img/me.jpg"}
+    %img{ :id => "pixelate-3", :src => "/img/me.jpg"}
+    %img{ :id => "pixelate-4", :src => "/img/me.jpg"}
+    %img{ :id => "normal", :src => "/img/me.jpg" }
+    %img{ :id => "pixelate-5", :src => "/img/me.jpg"}
+    %img{ :id => "pixelate-6", :src => "/img/me.jpg"}
+    %img{ :id => "pixelate-7", :src => "/img/me.jpg"}
+    %img{ :id => "pixelate-8", :src => "/img/me.jpg"}
+    %script{:type => "text/javascript", :src  => "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"}
+    %script{:type => "text/javascript", :src  => "/js/pixelate.js"}
+    %script{:type => "text/javascript", :src  => "/js/main.js"}
+
