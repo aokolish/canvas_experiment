@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'IconicStroke';
+  src: url('iconic_stroke.eot?') format('eot'),
+       url('iconic_stroke.woff') format('woff'),
+       url('iconic_stroke.ttf') format('truetype');
+}
+body {
+  background: #343838;
+}
+#indivual,
+#same-image {
+  width: 831px;
+  height: 1152px;
+  margin: 10px auto 0;
+  position: relative;
+  overflow: hidden;
+}
+img, canvas {
+  margin: 0 9px 9px 0;
+  display: block;
+  float: left;
+}
+#same-image canvas {
+  width: 268px;
+  height: 375px;
+  outline: 1px dotted black;
+}
+#nav {
+  height: 200px;
+  position: fixed;
+  top: 55px;
+  left: 50px;
+}
+  #nav ul {
+    list-style-type: none;
+  }
+  #nav li {
+    display: block;
+    height: 50px;
+    width: 50px;
+    color: #343838;
+    background: #00DFFC;
+    text-align: center;
+    border-radius: 30px;
+    margin-bottom: 25px;
+    box-shadow: inset 0 -1px 6px #61EDFF;
+    border: 1px solid #008394;
+  }
+  #nav li a {
+    display: block;
+    font-family: "IconicStroke";
+    font-size: 40px;
+    color: #343838;
+    text-decoration: none;
+    text-indent: 2px;
+    padding-top: 6px;
+  }
+  #nav a.arrow-up::before {
+    content: "3";
+  }
+  #nav a.arrow-down::before {
+    content: "5";
+  }
+  #nav li:hover {
+    background: #00B4CC;
+  }

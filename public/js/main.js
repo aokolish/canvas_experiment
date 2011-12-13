@@ -1,13 +1,5 @@
 window.onload = function() {
-  /*document.getElementById("pixelate-1").closePixelate([
 
-  document.getElementById("normal").closePixelate([
-    //you can use this to return the image to its original state
-    { resolution : 0 }
-  ]);
-*/
-
-  //$('img:not(#normal)').closePixelate([{ shape: 'circle', resolution: 12, size: 29, offset: 0 }]);
   flavors = [
     [ { shape: 'circle', resolution: 32, size: 6, offset: 8 },
       { shape: 'circle', resolution: 32, size: 9, offset: 16 },
@@ -25,9 +17,8 @@ window.onload = function() {
       { shape: 'diamond', resolution: 10, size: 13, offset: 13, alpha: 0.611 } ],
     [ { shape: 'diamond', resolution: 14, size: 27, offset: 15, alpha: 0.991 },
       { shape: 'circle', resolution: 50, size: 23, offset: 8, alpha: 0.501 },
-      { shape: 'circle', resolution: 50, size: 11, offset: 8, alpha: 0.441 } ]
-    //,[ { resolution: 0 },
-    //{ shape: 'circle', resolution: 12, size: 29, alpha: 0.3 } ]
+      { shape: 'circle', resolution: 50, size: 11, offset: 8, alpha: 0.441 } ],
+    [ { shape: 'circle', resolution: 12, size: 29, alpha: 0.3 } ]
   ];
 
   $('img:not(#normal)').each(function(i, img) {
@@ -35,4 +26,11 @@ window.onload = function() {
       $(img).closePixelate(flavors[i]);
     }
   });
+
+  $('#nav a').click(function(e) {
+    e.preventDefault();
+    var scrollTo = $($(this).attr('href')).offset().top - 10;
+    $('body').animate({scrollTop: scrollTo}, 1000, 'easeInOutExpo');
+  });
+
 };
