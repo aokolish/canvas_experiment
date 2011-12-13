@@ -4,6 +4,12 @@
     %link{ :href => "/css/styles.css", :rel => "stylesheet" }
 
   %body
+    #nav
+      %ul
+        %li
+          %a{ :href => "#indivual", :class => "arrow-up"}
+        %li
+          %a{ :href => "#same-image", :class => "arrow-down"}
     #indivual
       %img{ :id => "pixelate-1", :src => "/img/me.jpg"}
       %img{ :id => "pixelate-2", :src => "/img/me.jpg"}
@@ -17,12 +23,6 @@
     #same-image
       - 9.times do |i|
         %canvas{ :id => "canvas-#{i+1}" }
-    #nav
-      %ul
-        %li
-          %a{ :href => "#indivual", :class => "arrow-up"}
-        %li
-          %a{ :href => "#same-image", :class => "arrow-down"}
 
       %script{:type => "text/javascript", :src  => "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"}
       %script{:type => "text/javascript", :src  => "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"}

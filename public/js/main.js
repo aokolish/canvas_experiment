@@ -41,8 +41,7 @@ window.onload = function() {
         img = document.getElementById('normal');
 
     for (i=1; i < 10; i++) {
-      var isNewRow = i > 0 && i % 1 === 0,
-          endOfRow = i > 0 && i % 3 === 0;
+      var endOfRow = i > 0 && i % 3 === 0;
 
       canvas = "canvas-" + i;
       canvas = document.getElementById(canvas);
@@ -52,6 +51,8 @@ window.onload = function() {
       ctxt.scale(3,3);
       ctxt.drawImage(img,x,y,300,150);
 
+      grayscale(ctxt);
+
       x -= 100;
 
       if (endOfRow) {
@@ -59,6 +60,31 @@ window.onload = function() {
         x = 0;
       }
     }
+  }
+
+  function grayscale (ctxt) {
+    var imgd = ctxt.getImageData(0, 0, 300, 150),
+        pix = imgd.data;
+
+    //invert the colors
+    /*for (var i = 0, n = pix.length; i < n; i += 4) {
+      pix[i  ] = 255 - pix[i  ]; // red
+      pix[i+1] = 255 - pix[i+1]; // green
+      pix[i+2] = 255 - pix[i+2]; // blue
+      // i+3 is alpha (the fourth element)
+    }*/
+
+    //grayscale
+    for (var i = 0, n = pix.length; i < n; i += 4) {
+      var grayscale = pix[i  ] * .3 + pix[i+1] * .59 + pix[i+2] * .11;
+      pix[i  ] = grayscale; // red
+      pix[i+1] = grayscale; // green
+      pix[i+2] = grayscale; // blue
+      // i+3 is alpha (the fourth element)
+    }
+
+
+    ctxt.putImageData(imgd, 0, 0);
   }
 
   setupCanvas();
