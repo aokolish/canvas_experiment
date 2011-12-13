@@ -33,4 +33,33 @@ window.onload = function() {
     $('body').animate({scrollTop: scrollTo}, 1000, 'easeInOutExpo');
   });
 
+  function setupCanvas() {
+    var canvas,
+        ctxt,
+        x = 0,
+        y = 0,
+        img = document.getElementById('normal');
+
+    for (i=1; i < 10; i++) {
+      var isNewRow = i > 0 && i % 1 === 0,
+          endOfRow = i > 0 && i % 3 === 0;
+
+      canvas = "canvas-" + i;
+      canvas = document.getElementById(canvas);
+
+
+      ctxt = canvas.getContext('2d');
+      ctxt.scale(3,3);
+      ctxt.drawImage(img,x,y,300,150);
+
+      x -= 100;
+
+      if (endOfRow) {
+        y -= 50;
+        x = 0;
+      }
+    }
+  }
+
+  setupCanvas();
 };

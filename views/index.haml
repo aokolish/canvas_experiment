@@ -15,8 +15,8 @@
       %img{ :id => "pixelate-7", :src => "/img/me.jpg"}
       %img{ :id => "pixelate-8", :src => "/img/me.jpg"}
     #same-image
-      - 9.times do
-        %canvas
+      - 9.times do |i|
+        %canvas{ :id => "canvas-#{i+1}" }
     #nav
       %ul
         %li
