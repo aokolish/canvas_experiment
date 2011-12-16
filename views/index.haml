@@ -11,18 +11,16 @@
         %li
           %a{ :href => "#same-image", :class => "arrow-down"}
     #indivual
-      %img{ :id => "pixelate-1", :src => "/img/me.jpg"}
-      %img{ :id => "pixelate-2", :src => "/img/me.jpg"}
-      %img{ :id => "pixelate-3", :src => "/img/me.jpg"}
-      %img{ :id => "pixelate-4", :src => "/img/me.jpg"}
-      %img{ :id => "normal", :src => "/img/me.jpg" }
-      %img{ :id => "pixelate-5", :src => "/img/me.jpg"}
-      %img{ :id => "pixelate-6", :src => "/img/me.jpg"}
-      %img{ :id => "pixelate-7", :src => "/img/me.jpg"}
-      %img{ :id => "pixelate-8", :src => "/img/me.jpg"}
+      - 8.times do |i|
+        %img{ :id => "pixelate-#{i+1}", :src => "/img/me.jpg"}
+        - if i == 3
+          %img{ :id => "normal", :src => "/img/me.jpg" }
+
     #same-image
       - 9.times do |i|
         %canvas{ :id => "canvas-#{i+1}" }
+    #meme
+      %img{ :id => "dwight", :src => "/img/dwight.jpg"}
 
       %script{:type => "text/javascript", :src  => "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"}
       %script{:type => "text/javascript", :src  => "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"}

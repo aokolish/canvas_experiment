@@ -9,21 +9,27 @@ body {
 }
 #indivual,
 #same-image {
-  width: 831px;
-  height: 1152px;
-  margin: 10px auto 0;
+  width: 813px;
+  margin: 10px auto 100px;
   position: relative;
   overflow: hidden;
 }
+#same-image {
+  width: 609px;
+}
 img, canvas {
-  margin: 0 9px 9px 0;
+  margin: 0 3px 3px 0;
   display: block;
   float: left;
 }
 #same-image canvas {
-  width: 268px;
-  height: 375px;
-  outline: 1px dotted black;
+  width: 200px;
+  height: 279px;
+}
+#meme {
+  width: 560px;
+  margin: 0 auto 75px;
+  overflow: hidden;
 }
 #nav {
   height: 200px;

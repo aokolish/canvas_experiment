@@ -62,30 +62,64 @@ window.onload = function() {
     }
   }
 
+  //given a canvas context, it changes the pixels
+  //to grayscale
   function grayscale (ctxt) {
     var imgd = ctxt.getImageData(0, 0, 300, 150),
         pix = imgd.data;
 
-    //invert the colors
-    /*for (var i = 0, n = pix.length; i < n; i += 4) {
-      pix[i  ] = 255 - pix[i  ]; // red
-      pix[i+1] = 255 - pix[i+1]; // green
-      pix[i+2] = 255 - pix[i+2]; // blue
-      // i+3 is alpha (the fourth element)
-    }*/
-
-    //grayscale
     for (var i = 0, n = pix.length; i < n; i += 4) {
       var grayscale = pix[i  ] * .3 + pix[i+1] * .59 + pix[i+2] * .11;
       pix[i  ] = grayscale; // red
       pix[i+1] = grayscale; // green
       pix[i+2] = grayscale; // blue
-      // i+3 is alpha (the fourth element)
     }
-
 
     ctxt.putImageData(imgd, 0, 0);
   }
 
+  function meme() {
+    var ctxt = replaceImage();
+
+    ctxt.shadowOffsetX = 2;
+    ctxt.shadowOffsetY = 2;
+    ctxt.shadowBlur    = 12;
+    ctxt.shadowColor   = 'hsl(0, 0%, 0%)';
+
+    ctxt.font = '40pt Impact';
+    ctxt.fillStyle = 'white';
+    ctxt.fillText("The Office", 10, 50);
+  }
+
+  //creates a canvas, fills it with image data,
+  //and removes the image
+  function replaceImage() {
+    var img = document.getElementById('dwight'),
+        w = img.width,
+        h = img.height,
+        canvas = document.createElement('canvas'),
+        ctxt = canvas.getContext('2d');
+
+    canvas.width = w;
+    canvas.height = h;
+    canvas.id = img.id;
+
+    ctxt.drawImage(img, 0, 0 );
+
+    // replace image with canvas
+    img.parentNode.replaceChild(canvas, img);
+    return ctxt;
+  }
+
   setupCanvas();
+  meme();
 };
+
+
+//how to invert colors
+/*for (var i = 0, n = pix.length; i < n; i += 4) {
+  pix[i  ] = 255 - pix[i  ]; // red
+  pix[i+1] = 255 - pix[i+1]; // green
+  pix[i+2] = 255 - pix[i+2]; // blue
+  // i+3 is alpha (the fourth element)
+}*/
