@@ -88,7 +88,7 @@ window.onload = function() {
 
     ctxt.font = '40pt Impact';
     ctxt.fillStyle = 'white';
-    ctxt.fillText("The Office", 10, 50);
+    ctxt.fillText("I like . . . The Office", 10, 50);
   }
 
   //creates a canvas, fills it with image data,
