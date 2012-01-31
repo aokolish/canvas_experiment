@@ -4,10 +4,15 @@ class Demo
     meme()
     setupCanvas()
 
-    $('#nav a').click (e) ->
-      e.preventDefault()
-      scrollTo = $($(this).attr('href')).offset().top - 10
-      $('body').animate({scrollTop: scrollTo}, 1000, 'easeInOutExpo')
+    $('#nav a.up').click (e) ->
+      navClick(e, 'up')
+
+    $('#nav a.down').click (e) ->
+      navClick(e, 'down')
+
+  positions = ($(elem).offset().top for elem in $('body > div:not("#nav")'))
+
+  position = 0
 
   flavors = [
      [ { shape: 'circle', resolution: 32, size: 6, offset: 8 },
@@ -29,6 +34,25 @@ class Demo
       { shape: 'circle', resolution: 50, size: 11, offset: 8, alpha: 0.441 } ],
     [ { shape: 'circle', resolution: 12, size: 29, alpha: 0.3 } ]
   ]
+
+  navClick = (e, direction) ->
+    e.preventDefault()
+    #scrollTo = $($(this).attr('href')).offset().top - 10
+
+    if direction == 'down'
+      if position >= 2
+        return false
+      else
+        scrollTo = positions[position+1] - 10
+        $('body').animate({scrollTop: scrollTo}, 1000, 'easeInOutExpo')
+        position++
+    else if direction == 'up'
+      if position <= 0
+        return false
+      else
+        scrollTo = positions[position-1] - 10
+        $('body').animate({scrollTop: scrollTo}, 1000, 'easeInOutExpo')
+        position--
 
   one = ->
     $('img:not(#normal)').each (i, img) -> 

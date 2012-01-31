@@ -2,21 +2,32 @@
   var Demo;
 
   Demo = (function() {
-    var flavors, grayscale, meme, one, replaceImage, setupCanvas;
+    var elem, flavors, grayscale, meme, navClick, one, position, positions, replaceImage, setupCanvas;
 
     function Demo() {
       one();
       meme();
       setupCanvas();
-      $('#nav a').click(function(e) {
-        var scrollTo;
-        e.preventDefault();
-        scrollTo = $($(this).attr('href')).offset().top - 10;
-        return $('body').animate({
-          scrollTop: scrollTo
-        }, 1000, 'easeInOutExpo');
+      $('#nav a.up').click(function(e) {
+        return navClick(e, 'up');
+      });
+      $('#nav a.down').click(function(e) {
+        return navClick(e, 'down');
       });
     }
+
+    positions = (function() {
+      var _i, _len, _ref, _results;
+      _ref = $('body > div:not("#nav")');
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        elem = _ref[_i];
+        _results.push($(elem).offset().top);
+      }
+      return _results;
+    })();
+
+    position = 0;
 
     flavors = [
       [
@@ -125,6 +136,32 @@
         }
       ]
     ];
+
+    navClick = function(e, direction) {
+      var scrollTo;
+      e.preventDefault();
+      if (direction === 'down') {
+        if (position >= 2) {
+          return false;
+        } else {
+          scrollTo = positions[position + 1] - 10;
+          $('body').animate({
+            scrollTop: scrollTo
+          }, 1000, 'easeInOutExpo');
+          return position++;
+        }
+      } else if (direction === 'up') {
+        if (position <= 0) {
+          return false;
+        } else {
+          scrollTo = positions[position - 1] - 10;
+          $('body').animate({
+            scrollTop: scrollTo
+          }, 1000, 'easeInOutExpo');
+          return position--;
+        }
+      }
+    };
 
     one = function() {
       return $('img:not(#normal)').each(function(i, img) {
