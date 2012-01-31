@@ -4,3 +4,4 @@ gem "haml"
 gem "guard-coffeescript"
 gem "guard"
 gem 'therubyracer'
+gem 'shotgun'
