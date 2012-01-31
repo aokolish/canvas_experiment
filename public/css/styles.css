@@ -17,6 +17,10 @@ body {
   position: relative;
   overflow: hidden;
 }
+#same-image,
+#meme {
+  padding: 100px 0;
+}
 #same-image {
   width: 609px;
   height: 843px;
