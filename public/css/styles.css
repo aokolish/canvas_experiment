@@ -22,17 +22,20 @@ body {
   padding: 100px 0;
 }
 #same-image {
-  width: 609px;
-  height: 843px;
+  width: 860px;
+  height: 610px;
 }
 img, canvas {
   margin: 0 2px 2px 0;
   display: block;
   float: left;
 }
+#tart {
+  display: none;
+}
 #same-image canvas {
-  width: 200px;
-  height: 279px;
+  height: 200px;
+  width: 279px;
 }
 #meme {
   width: 560px;

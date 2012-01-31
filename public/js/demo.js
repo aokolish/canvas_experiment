@@ -187,7 +187,7 @@
       var canvas, ctxt, endOfRow, i, img, x, y, _results;
       x = 0;
       y = 0;
-      img = document.getElementById('normal');
+      img = document.getElementById('tart');
       _results = [];
       for (i = 1; i <= 9; i++) {
         endOfRow = i > 0 && i % 3 === 0;

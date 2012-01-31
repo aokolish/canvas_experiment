@@ -78,7 +78,7 @@ class Demo
   setupCanvas = ->
     x = 0
     y = 0
-    img = document.getElementById('normal')
+    img = document.getElementById('tart')
 
     for i in [1..9]
       endOfRow = i > 0 && i % 3 == 0
