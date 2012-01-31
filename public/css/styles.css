@@ -7,6 +7,9 @@
 body {
   background: #343838;
 }
+#indivual {
+  height: 1131px;
+}
 #indivual,
 #same-image {
   width: 813px;
@@ -16,9 +19,10 @@ body {
 }
 #same-image {
   width: 609px;
+  height: 843px;
 }
 img, canvas {
-  margin: 0 3px 3px 0;
+  margin: 0 2px 2px 0;
   display: block;
   float: left;
 }
@@ -61,10 +65,10 @@ img, canvas {
     text-indent: 2px;
     padding-top: 6px;
   }
-  #nav a.arrow-up::before {
+  #nav a.up::before {
     content: "3";
   }
-  #nav a.arrow-down::before {
+  #nav a.down::before {
     content: "5";
   }
   #nav li:hover {
