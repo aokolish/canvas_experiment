@@ -10,9 +10,9 @@ class Demo
     $('#nav a.down').click (e) ->
       navClick(e, 'down')
 
-  positions = ($(elem).offset().top for elem in $('body > div:not("#nav")'))
-
-  position = 0
+  # position of each of the sections
+  positions = ($(elem).offset().top - 10 for elem in $('body > div:not("#nav")'))
+  position = 0 # starting position
 
   flavors = [
      [ { shape: 'circle', resolution: 32, size: 6, offset: 8 },
@@ -43,15 +43,15 @@ class Demo
       if position >= 2
         return false
       else
-        scrollTo = positions[position+1] - 10
-        $('body').animate({scrollTop: scrollTo}, 1000, 'easeInOutExpo')
+        scrollTo = positions[position+1]
+        $('html, body').animate({scrollTop: scrollTo}, 1000, 'easeInOutExpo')
         position++
     else if direction == 'up'
       if position <= 0
         return false
       else
-        scrollTo = positions[position-1] - 10
-        $('body').animate({scrollTop: scrollTo}, 1000, 'easeInOutExpo')
+        scrollTo = positions[position-1]
+        $('html, body').animate({scrollTop: scrollTo}, 1000, 'easeInOutExpo')
         position--
 
   one = ->
@@ -129,7 +129,8 @@ class Demo
 
     ctxt.font = '40pt Impact'
     ctxt.fillStyle = 'white'
-    ctxt.fillText("The Office", 10, 50)
+    ctxt.fillText("I am faster ...", 10, 50)
+    ctxt.fillText("than 80% of all snakes.", 65, 360)
 
 window.onload = ->
   new Demo()

@@ -22,7 +22,7 @@
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         elem = _ref[_i];
-        _results.push($(elem).offset().top);
+        _results.push($(elem).offset().top - 10);
       }
       return _results;
     })();
@@ -144,8 +144,8 @@
         if (position >= 2) {
           return false;
         } else {
-          scrollTo = positions[position + 1] - 10;
-          $('body').animate({
+          scrollTo = positions[position + 1];
+          $('html, body').animate({
             scrollTop: scrollTo
           }, 1000, 'easeInOutExpo');
           return position++;
@@ -154,8 +154,8 @@
         if (position <= 0) {
           return false;
         } else {
-          scrollTo = positions[position - 1] - 10;
-          $('body').animate({
+          scrollTo = positions[position - 1];
+          $('html, body').animate({
             scrollTop: scrollTo
           }, 1000, 'easeInOutExpo');
           return position--;
@@ -232,7 +232,8 @@
       ctxt.shadowColor = 'hsl(0, 0%, 0%)';
       ctxt.font = '40pt Impact';
       ctxt.fillStyle = 'white';
-      return ctxt.fillText("The Office", 10, 50);
+      ctxt.fillText("I am faster ...", 10, 50);
+      return ctxt.fillText("than 80% of all snakes.", 65, 360);
     };
 
     return Demo;
